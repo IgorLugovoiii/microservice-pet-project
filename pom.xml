@@ -12,6 +12,7 @@
         <module>modules/eureka-server</module>
         <module>modules/api-gateway</module>
         <module>modules/movie-service</module>
+        <module>modules/hall-service</module>
     </modules>
 
     <dependencyManagement>

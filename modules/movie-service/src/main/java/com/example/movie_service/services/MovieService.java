@@ -13,27 +13,29 @@ import java.util.Optional;
 @Service
 public class MovieService {
     private final MovieRepository movieRepository;
+
     @Autowired
-    public MovieService(MovieRepository movieRepository){
+    public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
+
     @Transactional(readOnly = true)
-    public List<Movie> getAllMovies(){
+    public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
 
     @Transactional(readOnly = true)
-    public Optional<Movie> findMovieById(Long id){
+    public Optional<Movie> findMovieById(Long id) {
         return movieRepository.findById(id);
     }
 
     @Transactional
-    public Movie createMovie(Movie movie){
+    public Movie createMovie(Movie movie) {
         return movieRepository.save(movie);
     }
 
     @Transactional
-    public Movie updateMovie(Movie updatedMovie, Long id){
+    public Movie updateMovie(Movie updatedMovie, Long id) {
         Movie oldMovie = movieRepository.findById(id)
                 .orElseThrow(EntityNotFoundException::new);
 
@@ -47,12 +49,12 @@ public class MovieService {
     }
 
     @Transactional
-    public void deleteMovieById(Long id){
+    public void deleteMovieById(Long id) {
         movieRepository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
-    public List<Movie> findMoviesByGenre(String genre){
+    public List<Movie> findMoviesByGenre(String genre) {
         return movieRepository.findMoviesByGenre(genre);
     }
 }

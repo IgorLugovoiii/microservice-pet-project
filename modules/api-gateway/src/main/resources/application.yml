@@ -1,5 +1,5 @@
 server:
-  port: 8080  # API Gateway ??????????? ?? ????? 8080
+  port: 8080  # API Gateway працює на порту 8080
 
 spring:
   application:
@@ -8,14 +8,20 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true #Gateway ??????????? ??????????? ??????? ? Eureka ? ???????????? ?? ??? ??????.
+          enabled: true # Gateway автоматично підключає сервіси з Eureka
+
       routes:
-#example        - id: booking-service
-#          uri: lb://booking-service
-#          predicates:
-#            - Path=/api/bookings/**
+        - id: movie-service
+          uri: lb://movie-service
+          predicates:
+            - Path=/api/movies/**
+
+        - id: hall-service
+          uri: lb://hall-service
+          predicates:
+            - Path=/api/halls/**
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/ #API Gateway ???? ????????????? ? Eureka Server
+      defaultZone: http://localhost:8761/eureka/ # API Gateway реєструється у Eureka Server
