@@ -21,6 +21,11 @@ spring:
           predicates:
             - Path=/api/halls/**
 
+        - id: session-service
+          uri: lb://session-service
+          predicates:
+            - Path=/api/sessions/**
+
 eureka:
   client:
     service-url:

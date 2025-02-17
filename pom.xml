@@ -13,6 +13,7 @@
         <module>modules/api-gateway</module>
         <module>modules/movie-service</module>
         <module>modules/hall-service</module>
+        <module>modules/session-service</module>
     </modules>
 
     <dependencyManagement>
