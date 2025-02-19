@@ -14,22 +14,22 @@ spring:
         - id: movie-service
           uri: lb://movie-service
           predicates:
+            - Path=/api/movies
             - Path=/api/movies/**
 
         - id: hall-service
           uri: lb://hall-service
           predicates:
+            - Path=/api/halls
             - Path=/api/halls/**
 
         - id: session-service
           uri: lb://session-service
           predicates:
+            - Path=/api/sessions
             - Path=/api/sessions/**
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/ # API Gateway реєструється у Eureka Server
-  instance:
-    hostname: localhost
-    prefer-ip-address: true
