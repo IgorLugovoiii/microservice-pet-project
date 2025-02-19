@@ -2,7 +2,6 @@ package com.example.session_service.controllers;
 
 import com.example.session_service.dtos.SessionDto;
 import com.example.session_service.models.Session;
-import com.example.session_service.repositories.SessionRepository;
 import com.example.session_service.services.SessionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,20 +34,24 @@ public class SessionController {
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
         return new ResponseEntity<>(sessionService.findAll(pageable), HttpStatus.OK);
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<SessionDto>> findById(@PathVariable Long id){
+    public ResponseEntity<Optional<SessionDto>> findById(@PathVariable Long id) {
         return new ResponseEntity<>(sessionService.findSessionById(id), HttpStatus.OK);
     }
+
     @PostMapping
-    public ResponseEntity<?> createSession(@Valid @RequestBody Session session){
-        return new ResponseEntity<>(sessionService.createSession(session),HttpStatus.CREATED);
+    public ResponseEntity<?> createSession(@Valid @RequestBody Session session) {
+        return new ResponseEntity<>(sessionService.createSession(session), HttpStatus.CREATED);
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateSession(@Valid @RequestBody Session session, @PathVariable Long id){
-        return new ResponseEntity<>(sessionService.updateSession(session,id),HttpStatus.CREATED);
+    public ResponseEntity<?> updateSession(@Valid @RequestBody Session session, @PathVariable Long id) {
+        return new ResponseEntity<>(sessionService.updateSession(session, id), HttpStatus.CREATED);
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         sessionService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
