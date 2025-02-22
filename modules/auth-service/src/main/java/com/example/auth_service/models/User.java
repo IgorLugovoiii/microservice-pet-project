@@ -16,7 +16,6 @@ public class User {
     @Size(min = 0, max = 30, message = "Incorrect username, length must be from 0 to 30")
     @Column(name = "username", nullable = false)
     private String username;
-    @Size(min = 0, max = 30, message = "Incorrect password, length must be from 0 to 100")
     @Column(name = "password", nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
