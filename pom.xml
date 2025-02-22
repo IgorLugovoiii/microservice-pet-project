@@ -15,6 +15,7 @@
         <module>modules/hall-service</module>
         <module>modules/session-service</module>
         <module>modules/booking-service</module>
+        <module>modules/auth-service</module>
     </modules>
 
     <dependencyManagement>
