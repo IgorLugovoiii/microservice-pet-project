@@ -9,8 +9,14 @@ spring:
       discovery:
         locator:
           enabled: true # Gateway автоматично підключає сервіси з Eureka
+          lower-case-service-id: true
 
       routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+
         - id: movie-service
           uri: lb://movie-service
           predicates:
@@ -28,12 +34,6 @@ spring:
           predicates:
             - Path=/api/sessions
             - Path=/api/sessions/**
-
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/api/auth
-            - Path=/api/auth/**
 eureka:
   client:
     service-url:
