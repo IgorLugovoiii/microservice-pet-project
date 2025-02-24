@@ -1,0 +1,41 @@
+server:
+  port: 8080  # API Gateway працює на порту 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # Gateway автоматично підключає сервіси з Eureka
+          lower-case-service-id: true
+
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+
+        - id: movie-service
+          uri: lb://movie-service
+          predicates:
+            #            - Path=/api/movies варіант з /** включає в себе і це і шляхи з параметром {id}
+            - Path=/api/movies/**
+
+        - id: hall-service
+          uri: lb://hall-service
+          predicates:
+            - Path=/api/halls/**
+
+        - id: session-service
+          uri: lb://session-service
+          predicates:
+            - Path=/api/sessions/**
+
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/api/bookings/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # API Gateway реєструється у Eureka Server

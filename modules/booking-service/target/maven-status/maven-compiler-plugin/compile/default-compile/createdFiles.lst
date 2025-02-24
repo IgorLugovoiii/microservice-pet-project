@@ -1,0 +1,13 @@
+com\example\booking_service\models\Booking.class
+com\example\booking_service\models\enums\BookingStatus.class
+com\example\booking_service\dtos\SessionDto.class
+com\example\booking_service\services\BookingService.class
+com\example\booking_service\clients\MovieClient.class
+com\example\booking_service\clients\SessionClient.class
+com\example\booking_service\BookingServiceApplication.class
+com\example\booking_service\dtos\UserDto.class
+com\example\booking_service\clients\UserClient.class
+com\example\booking_service\dtos\BookingDto.class
+com\example\booking_service\repositories\BookingRepository.class
+com\example\booking_service\controllers\BookingController.class
+com\example\booking_service\dtos\MovieDto.class

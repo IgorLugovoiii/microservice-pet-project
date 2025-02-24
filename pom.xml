@@ -16,6 +16,7 @@
         <module>modules/session-service</module>
         <module>modules/booking-service</module>
         <module>modules/auth-service</module>
+        <module>modules/config-server</module>
     </modules>
 
     <dependencyManagement>

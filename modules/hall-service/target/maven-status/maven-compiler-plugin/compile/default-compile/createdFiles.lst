@@ -1,0 +1,5 @@
+com\example\hall_service\models\Hall.class
+com\example\hall_service\controllers\HallController.class
+com\example\hall_service\HallServiceApplication.class
+com\example\hall_service\repostitories\HallRepository.class
+com\example\hall_service\services\HallService.class

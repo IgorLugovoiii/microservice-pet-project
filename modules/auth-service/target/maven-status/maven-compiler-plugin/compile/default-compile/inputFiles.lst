@@ -1,0 +1,10 @@
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\AuthServiceApplication.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\configs\JwtAuthenticationFilter.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\configs\JwtUtil.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\configs\SecurityConfig.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\controllers\AuthController.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\models\Role.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\models\User.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\repositories\UserRepository.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\services\CustomUserDetailsService.java
+D:\JavaProjects\microservice-pet-project\modules\auth-service\src\main\java\com\example\auth_service\services\UserService.java

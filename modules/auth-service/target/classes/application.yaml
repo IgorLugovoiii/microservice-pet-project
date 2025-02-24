@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: auth-service  # Назва сервісу має співпадати з файлом конфігурації в `configs/`
+  cloud:
+    config:
+      uri: http://localhost:8888  # URL Config Server
+      fail-fast: true  # Відразу падати, якщо конфіг не знайдено
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

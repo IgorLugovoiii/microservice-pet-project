@@ -1,0 +1,10 @@
+com\example\session_service\controllers\SessionController.class
+com\example\session_service\dtos\SessionDto.class
+com\example\session_service\services\SessionService.class
+com\example\session_service\clients\HallClient.class
+com\example\session_service\clients\MovieClient.class
+com\example\session_service\repositories\SessionRepository.class
+com\example\session_service\dtos\HallDto.class
+com\example\session_service\models\Session.class
+com\example\session_service\dtos\MovieDto.class
+com\example\session_service\SessionServiceApplication.class

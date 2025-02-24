@@ -1,23 +1,15 @@
-server:
-  port: 8086
-
 spring:
   application:
-    name: auth-service
+    name: auth-service  # Назва сервісу має співпадати з файлом конфігурації в `configs/`
+  config:
+    import: "optional:configserver:http://localhost:8888"
 
-  datasource:
-    url: jdbc:postgresql://localhost:5432/auths_db
-    username: igor
-    password: password
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  cloud:
+    config:
+      uri: http://localhost:8888  # URL Config Server
+      fail-fast: true  # Відразу падати, якщо конфіг не знайдено
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-

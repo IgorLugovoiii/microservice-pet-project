@@ -1,0 +1,10 @@
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\clients\HallClient.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\clients\MovieClient.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\controllers\SessionController.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\dtos\HallDto.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\dtos\MovieDto.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\dtos\SessionDto.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\models\Session.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\repositories\SessionRepository.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\services\SessionService.java
+D:\JavaProjects\microservice-pet-project\modules\session-service\src\main\java\com\example\session_service\SessionServiceApplication.java

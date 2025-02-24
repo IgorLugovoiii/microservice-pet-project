@@ -1,0 +1,10 @@
+com\example\auth_service\models\Role.class
+com\example\auth_service\configs\SecurityConfig.class
+com\example\auth_service\services\UserService.class
+com\example\auth_service\AuthServiceApplication.class
+com\example\auth_service\configs\JwtAuthenticationFilter.class
+com\example\auth_service\configs\JwtUtil.class
+com\example\auth_service\services\CustomUserDetailsService.class
+com\example\auth_service\models\User.class
+com\example\auth_service\repositories\UserRepository.class
+com\example\auth_service\controllers\AuthController.class
