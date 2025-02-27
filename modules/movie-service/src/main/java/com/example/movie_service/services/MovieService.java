@@ -4,6 +4,7 @@ import com.example.movie_service.models.Movie;
 import com.example.movie_service.repositories.MovieRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +14,12 @@ import java.util.Optional;
 @Service
 public class MovieService {
     private final MovieRepository movieRepository;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Autowired
-    public MovieService(MovieRepository movieRepository) {
+    public MovieService(MovieRepository movieRepository, KafkaTemplate<String, String> kafkaTemplate) {
         this.movieRepository = movieRepository;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     @Transactional(readOnly = true)
@@ -51,6 +54,7 @@ public class MovieService {
     @Transactional
     public void deleteMovieById(Long id) {
         movieRepository.deleteById(id);
+        kafkaTemplate.send("movie-removed", String.valueOf(id));
     }
 
     @Transactional(readOnly = true)

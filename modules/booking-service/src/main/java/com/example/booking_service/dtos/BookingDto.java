@@ -11,15 +11,15 @@ import java.util.List;
 public class BookingDto {
     private Long id;
     private String username;
-    private String movieTitle;
+//    private String movieTitle;
     private List<String> seats;
     private LocalDateTime bookingTime;
     private BookingStatus bookingStatus;
 
-    public BookingDto(Booking booking, UserDto userDto, MovieDto movieDto){
+    public BookingDto(Booking booking, UserDto userDto){
         this.id = booking.getId();
         this.username = userDto.getUsername();
-        this.movieTitle = movieDto.getTitle();
+//        this.movieTitle = movieDto.getTitle();
         this.seats = booking.getSeats();
         this.bookingTime = booking.getBookingTime();
         this.bookingStatus = getBookingStatus();

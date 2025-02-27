@@ -7,6 +7,17 @@ spring:
     username: igor
     password: password
     driver-class-name: org.postgresql.Driver
+  kafka:
+    bootstrap-servers: localhost:9092  # Адреса Kafka-брокера, через який комунікують сервіси
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Серіалізація ключа для producer'а
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Серіалізація значення для producer'а
+    consumer:
+      group-id: movie-group  # Група, до якої належить consumer
+      auto-offset-reset: earliest  # Починати читати повідомлення з самого початку (якщо споживач новий)
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Десеріалізація ключа для consumer'а
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Десеріалізація значення для consumer'а
+
 
   jpa:
     hibernate:

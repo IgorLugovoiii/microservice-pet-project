@@ -43,6 +43,11 @@ public class AuthController {
         return new ResponseEntity<>("Invalid username or password", HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.findUserById(id));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody @Valid User user) {
         return ResponseEntity.ok(userService.updateUser(id, user));

@@ -11,33 +11,33 @@ import com.example.booking_service.models.Booking;
 import com.example.booking_service.repositories.BookingRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class BookingService {
     private final BookingRepository bookingRepository;
     private final UserClient userClient;
-    private final MovieClient movieClient;
+//    private final MovieClient movieClient;
     private final SessionClient sessionClient;
 
     @Autowired
     public BookingService(BookingRepository bookingRepository, UserClient userClient,
-                          MovieClient movieClient, SessionClient sessionClient) {
+                           SessionClient sessionClient) {
         this.bookingRepository = bookingRepository;
         this.userClient = userClient;
-        this.movieClient = movieClient;
+//        this.movieClient = movieClient;
         this.sessionClient = sessionClient;
     }
 
     public BookingDto convertToBookingDto(Booking booking) {
         UserDto userDto = userClient.getUserById(booking.getUserId());
         SessionDto sessionDto = sessionClient.getSessionById(booking.getSessionId());
-        MovieDto movieDto = movieClient.getMovieById(sessionDto.getMovieId());
-        return new BookingDto(booking, userDto, movieDto);
+//        MovieDto movieDto = movieClient.getMovieById(sessionDto.getMovieId());
+        return new BookingDto(booking, userDto);
     }
 
     @Transactional(readOnly = true)
@@ -74,4 +74,13 @@ public class BookingService {
     public void deleteBookingById(Long id){
         bookingRepository.deleteById(id);
     }
+
+    @KafkaListener(topics = "session-cancelled", groupId = "booking-group")
+    @Transactional
+    public void handleSessionCancelled(String sessionId) {
+        Long id = Long.parseLong(sessionId);
+        bookingRepository.deleteBySessionId(id);
+        System.out.println("Deleted all bookings with session ID: " + id);
+    }
+
 }
